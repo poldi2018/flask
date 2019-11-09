@@ -1,3 +1,5 @@
+THIS AND THAT:
+
 To list processses running flask:
 ps -fA | grep python
 
@@ -6,6 +8,7 @@ print(request.form["name"])
 
 upgrade python:
 brew upgrade python
+(or via installer)
 
 upgrade pip:
 pip3 install --upgrade pip
@@ -16,6 +19,11 @@ pip3 install Flask
 running flask app:
 python3 -m flask run
 
+set python version in runtime.txt:
+echo "python-3.7.4" > runtime.txt
+
+create requirements.txt:
+pip3 freeze --local > requirements.txt
 
 
 HEROKU:
@@ -43,14 +51,8 @@ For existing repositories, simply add the heroku remote
 
 $ heroku git:remote -a poldis-thorin-and-company-app
 
-
 clear buildpacks:
 heroku buildpacks:clear
-
-set python version in runtime.txt:
-echo "python-3.7.4" > runtime.txt
-create requirements.txt:
-pip freeze > requirements.txt
 
 show list of apps:
 heroku apps
@@ -64,4 +66,15 @@ git remote -v
 setting remote location:
 git remote add heroku https://git.heroku.com/poldis-thorin-and-company-app.git
 
+push to heroku:
+git push -u heroku master
 
+generating Procfile:
+echo web: python app.py > Procfile
+
+start web service:
+heroku ps:scale web=1
+
+config vars in heroku:
+IP: 0.0.0.0
+PORT: 5000
