@@ -4,6 +4,20 @@ ps -fA | grep python
 request.form object containing form data, with key:
 print(request.form["name"])
 
+upgrade python:
+brew upgrade python
+
+upgrade pip:
+pip3 install --upgrade pip
+
+install flask:
+pip3 install Flask
+
+running flask app:
+python3 -m flask run
+
+
+
 HEROKU:
 
 Install the Heroku CLI
@@ -44,7 +58,10 @@ heroku apps
 renaming app:
 heroku apps:rename [old_app_name] --app [new_app_name]
 
+checking for set remote locations:
+git remote -v
 
-
+setting remote location:
+git remote add heroku https://git.heroku.com/poldis-thorin-and-company-app.git
 
 
